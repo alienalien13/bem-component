@@ -1,0 +1,15 @@
+.component {
+  min-width: 30px;
+  max-width: 100px;
+  width: 100%;
+  text-align: center; }
+  .component .component__text, .component .component__adding {
+    width: 100%; }
+    .component .component__text .component__adding__button_minus, .component .component__text .component__adding__button_plus, .component .component__adding .component__adding__button_minus, .component .component__adding .component__adding__button_plus {
+      margin: 0;
+      padding: 0; }
+      .component .component__text .component__adding__button_minus:hover, .component .component__text .component__adding__button_plus:hover, .component .component__adding .component__adding__button_minus:hover, .component .component__adding .component__adding__button_plus:hover {
+        cursor: pointer; }
+    .component .component__text .component__adding__button_plus, .component .component__text .component__adding__amount, .component .component__text .component__adding__button_minus, .component .component__adding .component__adding__button_plus, .component .component__adding .component__adding__amount, .component .component__adding .component__adding__button_minus {
+      width: 33%;
+      float: left; }
