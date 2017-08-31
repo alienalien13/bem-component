@@ -6,7 +6,6 @@ const path = require('path'),
 
 const PATHS = {
 	src: path.join(__dirname, "src"),
-	component: path.join(__dirname, "component"),
 	component: path.join(__dirname, "component")
 }
 
@@ -18,6 +17,13 @@ const common = {
 	module: {
 		rules: [
 			{
+				test: /\.pug$/,
+				loader: 'pug-loader',
+				options: {
+					pretty: true
+				}
+			},
+			{
 				test: /\.sass$/,
 				use: ExtractTextWebpackPlugin.extract({
 					fallback: 'style-loader',
@@ -27,13 +33,6 @@ const common = {
 						'sass-loader'
 					]
 				})
-			},
-			{
-				test: /\.pug$/,
-				loader: 'pug-loader',
-				options: {
-					pretty: true
-				}
 			}
 		]
 	},
@@ -42,15 +41,12 @@ const common = {
 		new HtmlWebpackPlugin({
 			filename: 'component.html',
 			template: PATHS.src + '/component.pug'
-		}),
+		})
 	]
 }
 
 const dev = {
-	entry: {
-		'component': PATHS.src + '/component.js',
-		'jquery': PATHS.src + '/jquery-3.2.1.js'
-	},
+	entry: PATHS.src + '/index.js',
 	output: {
 		filename: '[name].js',
 		path: PATHS.component
@@ -61,18 +57,17 @@ const dev = {
 	},
 	watchOptions: {
 		poll: true
-	},
-	plugins: [
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery'
-		})
-	]
+	}
 }
 
 const prod = {
 	entry: {
+		'index': PATHS.src + '/index.js',
 		'component': PATHS.src + '/component.js'
+	},
+	output: {
+		filename: '[name].js',
+		path: PATHS.component
 	}
 }
 

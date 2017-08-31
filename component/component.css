@@ -25,7 +25,7 @@
       border-radius: 6px;
       padding: 5px 0;
       position: absolute;
-      z-index: 1;
+      z-index: 10;
       top: 135%;
       opacity: 0;
       transition: opacity 1s; }

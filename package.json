@@ -5,9 +5,9 @@
   "author": "Dmytro Ilhanaiev <ilhanaiev.dmytro@email.cz>",
   "license": "MIT",
   "scripts": {
-    "srv": "webpack-dev-server --env 'development'",
-    "dev": "rimraf ./component && webpack --watch --env 'development'",
-    "prod": "rimraf ./component && webpack --env 'production'"
+    "srv": "webpack-dev-server --env development",
+    "dev": "rimraf ./component && webpack --watch --env development",
+    "prod": "rimraf ./component && webpack --env production"
   },
   "devDependencies": {
     "css-loader": "^0.28.5",

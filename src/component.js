@@ -1,5 +1,3 @@
-import './component.sass'
-
 $('.component').ready(function(){
 
 	const productMaxAmount = 10;
