@@ -1,16 +1,52 @@
 .component
 	min-width: 30px
 	max-width: 100px
-	width: 100%
-	.component__text, .component__adding
+
+	&__adding
 		width: 100%
-		.component__adding__button_minus, .component__adding__button_plus
+		position: relative
+
+		&__amount
+			min-width: 33px
+		&__button_minus, &__button_plus
 			margin: 0
 			padding: 0
 			&:hover
 				cursor: pointer
-		.component__adding__button_plus, .component__adding__amount, .component__adding__button_minus
+		&__button_plus, &__amount, &__button_minus
 			width: 33%
 			float: left
+		&__alt
+			visibility: hidden
+			width: 120px
+			background-color: #555
+			color: #fff
+			text-align: center
+			border-radius: 6px
+			padding: 5px 0
+			position: absolute
+			z-index: 1
+			top: 135%
+			opacity: 0
+			transition: opacity 1s
+			&::before
+				content: ''
+				position: absolute
+				top: -10px
+				left: 50%
+				margin-left: -5px
+				border-width: 5px
+				border-style: solid
+				border-color: transparent transparent #555 transparent
+
+		.clear-fix::after
+			content: ''
+			display: block
+			clear: both
+			height: 0px
+			visibility: hidden
+
 	text-align: center
-			
+
+	&__text
+	width: 100%

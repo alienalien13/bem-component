@@ -1,15 +1,46 @@
 .component {
   min-width: 30px;
   max-width: 100px;
-  width: 100%;
-  text-align: center; }
-  .component .component__text, .component .component__adding {
-    width: 100%; }
-    .component .component__text .component__adding__button_minus, .component .component__text .component__adding__button_plus, .component .component__adding .component__adding__button_minus, .component .component__adding .component__adding__button_plus {
+  text-align: center;
+  width: 100%; }
+  .component__adding {
+    width: 100%;
+    position: relative; }
+    .component__adding__amount {
+      min-width: 33px; }
+    .component__adding__button_minus, .component__adding__button_plus {
       margin: 0;
       padding: 0; }
-      .component .component__text .component__adding__button_minus:hover, .component .component__text .component__adding__button_plus:hover, .component .component__adding .component__adding__button_minus:hover, .component .component__adding .component__adding__button_plus:hover {
+      .component__adding__button_minus:hover, .component__adding__button_plus:hover {
         cursor: pointer; }
-    .component .component__text .component__adding__button_plus, .component .component__text .component__adding__amount, .component .component__text .component__adding__button_minus, .component .component__adding .component__adding__button_plus, .component .component__adding .component__adding__amount, .component .component__adding .component__adding__button_minus {
+    .component__adding__button_plus, .component__adding__amount, .component__adding__button_minus {
       width: 33%;
       float: left; }
+    .component__adding__alt {
+      visibility: hidden;
+      width: 120px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      top: 135%;
+      opacity: 0;
+      transition: opacity 1s; }
+      .component__adding__alt::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #555 transparent; }
+    .component__adding .clear-fix::after {
+      content: '';
+      display: block;
+      clear: both;
+      height: 0px;
+      visibility: hidden; }

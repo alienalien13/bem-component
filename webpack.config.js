@@ -6,15 +6,13 @@ const path = require('path'),
 
 const PATHS = {
 	src: path.join(__dirname, "src"),
+	component: path.join(__dirname, "component"),
 	component: path.join(__dirname, "component")
 }
 
 const common = {
-	entry: [
-		PATHS.src + '/component.js'
-	],
 	output: {
-		filename: 'component.js',
+		filename: '[name].js',
 		path: PATHS.component
 	},
 	module: {
@@ -40,11 +38,23 @@ const common = {
 		]
 	},
 	plugins: [
-		new ExtractTextWebpackPlugin('./component.css')
+		new ExtractTextWebpackPlugin('./component.css'),
+		new HtmlWebpackPlugin({
+			filename: 'component.html',
+			template: PATHS.src + '/component.pug'
+		}),
 	]
 }
 
 const dev = {
+	entry: {
+		'component': PATHS.src + '/component.js',
+		'jquery': PATHS.src + '/jquery-3.2.1.js'
+	},
+	output: {
+		filename: '[name].js',
+		path: PATHS.component
+	},
 	devServer: {
 		port: 9000,
 		contentBase: path.join(__dirname, "component")
@@ -53,11 +63,17 @@ const dev = {
 		poll: true
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			filename: 'component.html',
-			template: PATHS.src + '/component.pug'
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery'
 		})
 	]
 }
 
-module.exports = env => merge(common, dev)
+const prod = {
+	entry: {
+		'component': PATHS.src + '/component.js'
+	}
+}
+
+module.exports = env => env === 'development' ? merge(common, dev) : merge(common, prod)

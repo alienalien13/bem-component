@@ -2,8 +2,10 @@
 <section class="component">
   <div class="component__text">Počet zboží</div>
   <div class="component__adding">
-    <div class="component__adding__button_plus">+</div>
-    <input class="component__adding__amount" type="text" name="">
-    <div class="component__adding__button_minus">-</div>
+    <div class="component__adding__button_plus" onmousedown="return false">+</div>
+    <input class="component__adding__amount" type="number" name="productAmount" min="0" value="0">
+    <div class="component__adding__button_minus" onmousedown="return false">-</div>
+    <div class="clear-fix"></div>
+    <div class="component__adding__alt"></div>
   </div>
 </section><script type="text/javascript" src="component.js"></script>

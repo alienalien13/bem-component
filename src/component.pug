@@ -1,6 +1,8 @@
 section.component
-	div.component__text Počet zboží
-	div.component__adding
-		div.component__adding__button_plus +
-		input(type="text", name="", class="component__adding__amount")
-		div.component__adding__button_minus -
+	.component__text Počet zboží
+	.component__adding
+		.component__adding__button_plus(onmousedown="return false") +
+		input(type="number", name="productAmount", class="component__adding__amount" min="0" value="0")
+		.component__adding__button_minus(onmousedown="return false") -
+		.clear-fix
+		.component__adding__alt
